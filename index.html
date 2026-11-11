@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Estás invitado al cumpleaños número 23 de Jonathan Roberto Barrera Barrera. Domingo 15 de noviembre de 2026.">
+
+  <title>Cumpleaños 23 | Jonathan Roberto</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #080808;
+      --surface: #111;
+      --white: #f1f0ec;
+      --muted: #92928f;
+      --line: rgba(255,255,255,.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: "DM Sans", Arial, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .12;
+      z-index: 10;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(760px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    .top-line {
+      width: 100%;
+      height: 1px;
+      margin-top: 28px;
+      background: linear-gradient(90deg, transparent, #777, transparent);
+    }
+
+    /* ENCABEZADO */
+
+    .hero {
+      text-align: center;
+      padding: 64px 0 20px;
+      animation: appear 1s ease both;
+    }
+
+    .eyebrow {
+      color: #aaa;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin-top: 25px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(31px, 7vw, 55px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: .015em;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-top: 7px;
+      font-family: "DM Sans", sans-serif;
+      font-size: .52em;
+      font-weight: 400;
+      letter-spacing: .19em;
+    }
+
+    .age {
+      margin-top: 28px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(75px, 15vw, 112px);
+      font-weight: 400;
+      line-height: .9;
+      letter-spacing: -.04em;
+    }
+
+    .age span {
+      display: block;
+      margin-top: 13px;
+      color: #aaa;
+      font-family: "DM Sans", sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .42em;
+    }
+
+    .intro-text {
+      max-width: 390px;
+      margin: 25px auto 0;
+      color: #b8b8b4;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* ESCENA DE AJEDREZ */
+
+    .chess-section {
+      position: relative;
+      height: 390px;
+      margin: 8px auto 0;
+      overflow: hidden;
+      perspective: 1000px;
+    }
+
+    .light-effect {
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      width: 380px;
+      height: 280px;
+      transform: translateX(-50%);
+      background: radial-gradient(
+        ellipse,
+        rgba(255,255,255,.12) 0%,
+        rgba(255,255,255,.035) 42%,
+        transparent 72%
+      );
+      filter: blur(18px);
+    }
+
+    .board-holder {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      width: min(88vw, 430px);
+      aspect-ratio: 1;
+      transform: translateX(-50%) rotateX(57deg) rotateZ(-8deg);
+      transform-style: preserve-3d;
+    }
+
+    .chessboard {
+      display: grid;
+      width: 100%;
+      height: 100%;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+      border: 9px solid #202020;
+      outline: 1px solid #696969;
+      box-shadow:
+        0 0 0 12px #111,
+        0 25px 50px rgba(0,0,0,.9);
+      overflow: hidden;
+    }
+
+    .square {
+      position: relative;
+    }
+
+    .square.light {
+      background: linear-gradient(135deg, #e5e4df, #aaa9a4);
+    }
+
+    .square.dark {
+      background: linear-gradient(135deg, #343433, #191919);
+    }
+
+    .square::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(0,0,0,.07);
+    }
+
+    .bishop {
+      position: absolute;
+      z-index: 3;
+      width: 145px;
+      height: 245px;
+      left: 50%;
+      top: 4px;
+      transform: translateX(-50%);
+      filter: drop-shadow(12px 18px 10px rgba(0,0,0,.8));
+    }
+
+    .chess-caption {
+      position: absolute;
+      bottom: 13px;
+      left: 0;
+      right: 0;
+      color: #777;
+      font-size: 9px;
+      letter-spacing: .3em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* INFORMACIÓN DEL EVENTO */
+
+    .event {
+      padding: 28px 0 36px;
+      text-align: center;
+    }
+
+    .section-title {
+      color: #aaa;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+    }
+
+    .event-heading {
+      margin: 16px 0 27px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(25px, 5vw, 34px);
+      font-weight: 400;
+    }
+
+    .event-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .detail-card {
+      position: relative;
+      padding: 27px 12px 25px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, #151515, #0c0c0c);
+      overflow: hidden;
+    }
+
+    .detail-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 18%;
+      width: 64%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #aaa, transparent);
+    }
+
+    .detail-icon {
+      margin-bottom: 13px;
+      color: #aaa;
+      font-size: 17px;
+    }
+
+    .detail-main {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(18px, 4vw, 26px);
+      font-weight: 400;
+      line-height: 1.35;
+    }
+
+    .detail-sub {
+      margin-top: 10px;
+      color: #999;
+      font-size: 9px;
+      letter-spacing: .2em;
+    }
+
+    /* UBICACIÓN */
+
+    .location {
+      padding: 32px 0 34px;
+      text-align: center;
+    }
+
+    .location-name {
+      margin: 17px 0 20px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .map-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 13px 20px;
+      border: 1px solid #555;
+      color: #eee;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-decoration: none;
+      transition: all .25s ease;
+    }
+
+    .map-button:hover {
+      border-color: #eee;
+      background: #eee;
+      color: #080808;
+    }
+
+    .map-button svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .divider {
+      height: 1px;
+      margin: 10px 0 0;
+      background: linear-gradient(90deg, transparent, #555, transparent);
+    }
+
+    /* RESPUESTA */
+
+    .rsvp {
+      padding: 42px 0 60px;
+      text-align: center;
+    }
+
+    .rsvp-title {
+      margin-bottom: 27px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 25px;
+      font-weight: 400;
+    }
+
+    .rsvp-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .rsvp-button {
+      display: inline-flex;
+      min-width: 180px;
+      min-height: 53px;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px;
+      border: 1px solid #e8e8e4;
+      background: #e8e8e4;
+      color: #101010;
+      font-family: "DM Sans", sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-decoration: none;
+      transition: all .25s ease;
+    }
+
+    .rsvp-button:hover {
+      background: #fff;
+      transform: translateY(-2px);
+    }
+
+    .rsvp-button.no {
+      border-color: #555;
+      background: transparent;
+      color: #eee;
+    }
+
+    .rsvp-button.no:hover {
+      border-color: #ddd;
+      background: #171717;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .chess-section {
+        height: 315px;
+      }
+
+      .board-holder {
+        top: 77px;
+        width: 88vw;
+      }
+
+      .bishop {
+        width: 115px;
+        height: 200px;
+        top: 0;
+      }
+
+      .event-details {
+        gap: 8px;
+      }
+
+      .detail-card {
+        padding: 21px 6px;
+      }
+
+      .detail-sub {
+        font-size: 8px;
+        letter-spacing: .13em;
+      }
+
+      .rsvp-buttons {
+        flex-direction: column;
+        max-width: 300px;
+        margin: auto;
+      }
+
+      .rsvp-button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <div class="top-line"></div>
+
+    <header class="hero">
+      <div class="eyebrow">Invitación de cumpleaños</div>
+
+      <h1>
+        JONATHAN ROBERTO
+        <span>BARRERA BARRERA</span>
+      </h1>
+
+      <div class="age">
+        23
+        <span>AÑOS</span>
+      </div>
+
+      <p class="intro-text">
+        Quiero celebrar este día especial contigo.
+        Acompáñame a festejar mi cumpleaños.
+      </p>
+    </header>
+
+    <!-- TABLERO Y ALFIL -->
+    <section class="chess-section" aria-label="Tablero de ajedrez con un alfil">
+
+      <div class="light-effect"></div>
+
+      <div class="board-holder">
+        <div class="chessboard" id="chessboard"></div>
+      </div>
+
+      <svg class="bishop" viewBox="0 0 150 250" role="img" aria-label="Pieza de ajedrez alfil">
+        <defs>
+          <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset=".25" stop-color="#d9d9d5"/>
+            <stop offset=".55" stop-color="#858582"/>
+            <stop offset=".78" stop-color="#444442"/>
+            <stop offset="1" stop-color="#c8c8c3"/>
+          </linearGradient>
+
+          <linearGradient id="base" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e7e7e2"/>
+            <stop offset=".5" stop-color="#777774"/>
+            <stop offset="1" stop-color="#242424"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Cuerpo del alfil -->
+        <path
+          d="M75 9
+             C57 9 45 23 45 41
+             C45 54 52 65 64 71
+             C57 85 47 99 39 115
+             C30 132 25 148 29 163
+             C32 175 39 183 47 190
+             L39 211
+             L23 224
+             L18 237
+             L132 237
+             L127 224
+             L111 211
+             L103 190
+             C111 183 118 175 121 163
+             C125 148 120 132 111 115
+             C103 99 93 85 86 71
+             C98 65 105 54 105 41
+             C105 23 93 9 75 9 Z"
+          fill="url(#silver)"
+          stroke="#f5f5f0"
+          stroke-width="1.5"
+        />
+
+        <!-- Corte diagonal característico del alfil -->
+        <path
+          d="M87 18 L61 62"
+          stroke="#333"
+          stroke-width="9"
+          stroke-linecap="round"
+        />
+
+        <path
+          d="M82 19 L63 55"
+          stroke="#fff"
+          stroke-width="2"
+          stroke-linecap="round"
+          opacity=".85"
+        />
+
+        <!-- Detalles torneados -->
+        <path d="M48 184 Q75 197 102 184"
+          fill="none" stroke="#555" stroke-width="2"/>
+
+        <path d="M42 207 Q75 217 108 207"
+          fill="none" stroke="#555" stroke-width="2"/>
+
+        <path d="M27 224 Q75 237 123 224"
+          fill="none" stroke="url(#base)" stroke-width="4"/>
+
+        <ellipse cx="75" cy="242" rx="54" ry="4"
+          fill="#aaa" opacity=".35"/>
+      </svg>
+
+      <div class="chess-caption">Una noche especial</div>
+    </section>
+
+    <!-- FECHA Y HORA -->
+    <section class="event">
+
+      <div class="section-title">Celebremos juntos</div>
+
+      <h2 class="event-heading">
+        Una fecha para recordar
+      </h2>
+
+      <div class="event-details">
+
+        <article class="detail-card">
+          <div class="detail-icon">✳</div>
+          <div class="detail-main">
+            15 de noviembre
+          </div>
+          <div class="detail-sub">
+            DOMINGO · 2026
+          </div>
+        </article>
+
+        <article class="detail-card">
+          <div class="detail-icon">◷</div>
+          <div class="detail-main">
+            7:00 p. m.
+          </div>
+          <div class="detail-sub">
+            HORA DE INICIO
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- UBICACIÓN -->
+    <section class="location">
+
+      <div class="section-title">Lugar del evento</div>
+
+      <p class="location-name">
+        Calle 4 Mz 16 L2<br>
+        San Lorenzo, Chimalhuacán
+      </p>
+
+      <a
+        class="map-button"
+        href="https://maps.app.goo.gl/9DyGiUpHrFXoNvwr8"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.6"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+          <circle cx="12" cy="10" r="2.5"/>
+        </svg>
+        VER UBICACIÓN
+      </a>
+
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- RESPUESTA POR WHATSAPP -->
+    <section class="rsvp">
+
+      <h2 class="rsvp-title">
+        ¿Me acompañas?
+      </h2>
+
+      <div class="rsvp-buttons">
+
+        <a
+          class="rsvp-button"
+          href="https://wa.me/525565593372?text=S%C3%AD%2C%20voy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          SÍ, VOY
+        </a>
+
+        <a
+          class="rsvp-button no"
+          href="https://wa.me/525565593372?text=No%20puedo%20asistir"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          NO PUEDO ASISTIR
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Construcción del tablero de ajedrez 8 x 8.
+    const board = document.getElementById("chessboard");
+
+    for (let row = 0; row < 8; row++) {
+      for (let column = 0; column < 8; column++) {
+        const square = document.createElement("div");
+
+        square.className =
+          "square " +
+          ((row + column) % 2 === 0 ? "light" : "dark");
+
+        board.appendChild(square);
+      }
+    }
+  </script>
+
+</body>
+</html>
